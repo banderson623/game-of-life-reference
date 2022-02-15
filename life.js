@@ -90,7 +90,7 @@ const getAndProcessWorld = () => {
 }
 
 const PARALLEL_WORLDS = 50;
-const WORLDS_TO_GET = 250;
+const WORLDS_TO_GET = 100;
 
 const array_sum = array => array.reduce((all, l) => all+l, 0);
 let lifes = [];
@@ -127,7 +127,7 @@ if (isMainThread) {
   }
 } else {
   getAndProcessWorld().then(lastGeneration => {
-    const lifes = lastGeneration.reduce((all, row) => all + row.filter(cell => cell == LIFE).length, 0);
+    const lifes = lastGeneration.reduce((all, row) => all + array_sum(row), 0);
     parentPort.postMessage({lifes});
   })
 }
