@@ -89,8 +89,8 @@ const getAndProcessWorld = () => {
   });
 }
 
-const PARALLEL_WORLDS = 2;
-const WORLDS_TO_GET = 100;
+const PARALLEL_WORLDS = 50;
+const WORLDS_TO_GET = 250;
 
 const array_sum = array => array.reduce((all, l) => all+l, 0);
 let lifes = [];
